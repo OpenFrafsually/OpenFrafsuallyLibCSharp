@@ -1,13 +1,13 @@
-# Default ignored files
+﻿# Default ignored files
 /shelf/
 /workspace.xml
 # Rider ignored files
-/modules.xml
-/projectSettingsUpdater.xml
 /contentModel.xml
 /.idea.FrafsuallyLib.iml
+/projectSettingsUpdater.xml
+/modules.xml
 # Datasource local storage ignored files
-/../../../../../../../../:\Home\Documents\GitHub\FrafsuallyLib.CSharp\.idea\.idea.FrafsuallyLib\.idea/dataSources/
+/../../../../../../../../../:\Users\AluminiumTech\Documents\GitHub\FrafsuallyLib.CSharp\.idea\.idea.FrafsuallyLib\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/

@@ -19,6 +19,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using FrafsuallyLib.Calculators.Definition;
 
 using FrafsuallyLib.Models;
@@ -132,7 +133,7 @@ namespace FrafsuallyLib.Calculators.Implementation
 
             foreach (FrameTime fr in frameTimes)
             {
-                int percentileIndex = (Convert.ToInt32(frameNumber / frameTimes.Length) * frameTimes.Length);
+                int percentileIndex = (Convert.ToInt32(frameNumber / frameTimes.Length) * 100);
                 percentile.Add(percentileIndex, fr);
                 frameNumber++;
             }

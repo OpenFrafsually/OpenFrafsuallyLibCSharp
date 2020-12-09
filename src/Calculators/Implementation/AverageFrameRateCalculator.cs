@@ -88,23 +88,32 @@ namespace FrafsuallyLib.Calculators.Implementation
         /// <returns></returns>
         public double CalculatePercentile(double percentage, FrameTime[] frameTimes)
         {
-            if(!(percentage >= 0 && percentage <= 1.0) || (percentage >= 0 && percentage <= 100)){
-                percentage = percentage / 100;
-            }
-            else if(percentage / 100 < 0){
-                percentage = percentage * 100;
-            }
-            else if(percentage >= 100){
+            return PercentileOf(percentage, frameTimes).FrameTimeMilliseconds;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="percentage"></param>
+        /// <param name="frameTimes"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public FrameTime PercentileOf(double percentage, FrameTime[] frameTimes)
+        {
+            if(percentage > 100){
                 throw new Exception("Error: Inappropriate percentage value (over 100%) provided as parameter.");
             }
+            if(percentage < 0){
+                throw new Exception("Error: Inappropriate percentage value (less than 0%) provided as parameter.");
+            }
 
-            var auto = SortFrameTimesByPercentile(frameTimes);
+            Array.Sort(frameTimes);
             
             //No rounding necessary cos Int32.
             //percentileIndex = Math.Round(percentileIndex, 0, MidpointRounding.ToEven);
-            return auto[Convert.ToInt32(percentage)].FrameTimeMilliseconds;
+            return frameTimes[Convert.ToInt32(percentage / 100) * frameTimes.Length];
         }
-
+        
         public AverageFrameRate FrameTimesToAverageFrameRate(FrameTime[] frameTimes)
         {
             AverageFrameRate averageFrameRate = new AverageFrameRate();
@@ -115,30 +124,6 @@ namespace FrafsuallyLib.Calculators.Implementation
             }
 
             return averageFrameRate;
-        }
-
-        /// <summary>
-        ///
-        /// 
-        /// </summary>
-        /// <param name="frameTimes"></param>
-        /// <returns></returns>
-        public Dictionary<int, FrameTime> SortFrameTimesByPercentile(FrameTime[] frameTimes)
-        {
-            Dictionary<int, FrameTime> percentile = new Dictionary<int, FrameTime>();
-
-            Array.Sort(frameTimes);
-            
-            int frameNumber = 0;
-
-            foreach (FrameTime fr in frameTimes)
-            {
-                int percentileIndex = (Convert.ToInt32(frameNumber / frameTimes.Length) * 100);
-                percentile.Add(percentileIndex, fr);
-                frameNumber++;
-            }
-
-            return percentile;
         }
     }
 }

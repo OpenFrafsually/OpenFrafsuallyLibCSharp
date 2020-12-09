@@ -49,9 +49,11 @@ namespace FrafsuallyLib.Calculators.Definition
         /// <returns></returns>
         public double CalculatePercentile(double percentage, FrameTime[] frameTimes);
 
+        public FrameTime PercentileOf(double percentage, FrameTime[] frameTimes);
+        
         public AverageFrameRate FrameTimesToAverageFrameRate(FrameTime[] frameTimes);
 
-        public Dictionary<int, FrameTime> SortFrameTimesByPercentile(FrameTime[] frameTimes);
+        
 
     }
 }

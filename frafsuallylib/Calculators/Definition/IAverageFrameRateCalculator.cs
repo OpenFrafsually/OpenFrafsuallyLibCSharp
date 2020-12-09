@@ -23,6 +23,7 @@ SOFTWARE.
 
  */
 
+using System.Collections.Generic;
 using FrafsuallyLib.Models;
 
 namespace FrafsuallyLib.Calculators.Definition
@@ -55,5 +56,8 @@ namespace FrafsuallyLib.Calculators.Definition
         public double CalculatePercentile(double percentage, FrameTime[] frameTimes);
 
         public AverageFrameRate FrameTimesToAverageFrameRate(FrameTime[] frameTimes);
+
+        public Dictionary<int, FrameTime> SortFrameTimesByPercentile(FrameTime[] frameTimes);
+
     }
 }

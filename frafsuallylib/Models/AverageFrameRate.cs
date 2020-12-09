@@ -51,35 +51,34 @@ namespace FrafsuallyLib.Models
         /// </summary>
         public double GeometricMeanAverageFps => _averageFrameRateCalculator.GetAverageFpsUsingGeometricMean(FrameTimesToArray);
         
-        /// <summary>
-        /// 50% Percentile Frame rates
-        /// </summary>
-        public double MedianFps => _averageFrameRateCalculator.CalculatePercentile(50.0, FrameTimesToArray);
         
         /// <summary>
-        /// 99% Percentile Frame rates
+        /// 1.0% Percentile Frame rates
         /// </summary>
-        public double OnePercentLows => _averageFrameRateCalculator.CalculatePercentile(99.0, FrameTimesToArray);
+        public double OnePercentLows => _averageFrameRateCalculator.CalculatePercentile(1.0, FrameTimesToArray);
         
         /// <summary>
-        /// 99.9% Percentile Frame rates
+        /// 0.1% Percentile Frame rates
         /// </summary>
-        public double ZeroPointOnePercentLows => _averageFrameRateCalculator.CalculatePercentile(99.9, FrameTimesToArray);
+        public double ZeroPointOnePercentLows => _averageFrameRateCalculator.CalculatePercentile(0.1, FrameTimesToArray);
 
+        
+        
         /// <summary>
         /// 25% Percentile Frame rates
         /// </summary>
         public double LowerQuartileFps => _averageFrameRateCalculator.CalculatePercentile(25.0, FrameTimesToArray);
         
         /// <summary>
+        /// 50% Percentile Frame rates
+        /// </summary>
+        public double MedianFps => _averageFrameRateCalculator.CalculatePercentile(50.0, FrameTimesToArray);
+
+        
+        /// <summary>
         /// 75% Percentile Frame rates
         /// </summary>
         public double UpperQuartileFps => _averageFrameRateCalculator.CalculatePercentile(75.0, FrameTimesToArray);
-
-        /// <summary>
-        /// 90% Percentile Frame rates
-        /// </summary>
-        public double TenPercentLows => _averageFrameRateCalculator.CalculatePercentile(90.0, FrameTimesToArray);
         
         /// <summary>
         /// 

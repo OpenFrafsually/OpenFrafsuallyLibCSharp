@@ -24,7 +24,7 @@ SOFTWARE.
  */
 
 using System;
-
+using System.Collections.Generic;
 using FrafsuallyLib.Calculators.Definition;
 
 using FrafsuallyLib.Models;
@@ -83,7 +83,8 @@ namespace FrafsuallyLib.Calculators.Implementation
 
             return average / Convert.ToDouble(frameTimes.Length);
         }
-
+        
+        
         /// <summary>
         /// 
         /// </summary>
@@ -101,12 +102,12 @@ namespace FrafsuallyLib.Calculators.Implementation
             else if(percentage >= 100){
                 throw new Exception("Error: Inappropriate percentage value (over 100%) provided as parameter.");
             }
-            
-            int percentileIndex = (Convert.ToInt32(percentage / 100) * frameTimes.Length);
 
+            var auto = SortFrameTimesByPercentile(frameTimes);
+            
             //No rounding necessary cos Int32.
             //percentileIndex = Math.Round(percentileIndex, 0, MidpointRounding.ToEven);
-            return frameTimes[percentileIndex].FrameTimeMilliseconds;
+            return auto[Convert.ToInt32(percentage)].FrameTimeMilliseconds;
         }
 
         public AverageFrameRate FrameTimesToAverageFrameRate(FrameTime[] frameTimes)
@@ -119,6 +120,30 @@ namespace FrafsuallyLib.Calculators.Implementation
             }
 
             return averageFrameRate;
+        }
+
+        /// <summary>
+        ///
+        /// 
+        /// </summary>
+        /// <param name="frameTimes"></param>
+        /// <returns></returns>
+        public Dictionary<int, FrameTime> SortFrameTimesByPercentile(FrameTime[] frameTimes)
+        {
+            Dictionary<int, FrameTime> percentile = new Dictionary<int, FrameTime>();
+
+            Array.Sort(frameTimes);
+            
+            int frameNumber = 0;
+
+            foreach (FrameTime fr in frameTimes)
+            {
+                int percentileIndex = (Convert.ToInt32(frameNumber / frameTimes.Length) * frameTimes.Length);
+                percentile.Add(percentileIndex, fr);
+                frameNumber++;
+            }
+
+            return percentile;
         }
     }
 }

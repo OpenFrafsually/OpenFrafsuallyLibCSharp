@@ -34,7 +34,7 @@ namespace FrafsuallyLib.Models
         {
             _frameTimeCalculator = new FrameTimeCalculator();
         }
-        
+
         /// <summary>
         /// 
         /// </summary>

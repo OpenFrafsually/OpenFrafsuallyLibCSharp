@@ -18,10 +18,9 @@
  */
 
 using System.Collections.Generic;
+using OpenFrafsuallyLib.Calculators.Implementation;
 
-using FrafsuallyLib.Calculators.Implementation;
-
-namespace FrafsuallyLib.Models
+namespace OpenFrafsuallyLib.Models
 {
     /// <summary>
     ///  A class to model average frame rates made up from a number of frametimes.

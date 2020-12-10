@@ -17,10 +17,9 @@
     USA
  */
 
-using System.Collections.Generic;
-using FrafsuallyLib.Models;
+using OpenFrafsuallyLib.Models;
 
-namespace FrafsuallyLib.Calculators.Definition
+namespace OpenFrafsuallyLib.Calculators.Definition
 {
     /// <summary>
     /// An interface to describe what types of calculations need to be performed on AverageFrameRate. 

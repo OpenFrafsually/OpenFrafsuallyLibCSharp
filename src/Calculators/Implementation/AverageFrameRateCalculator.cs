@@ -18,13 +18,10 @@
  */
 
 using System;
-using System.Collections.Generic;
+using OpenFrafsuallyLib.Calculators.Definition;
+using OpenFrafsuallyLib.Models;
 
-using FrafsuallyLib.Calculators.Definition;
-
-using FrafsuallyLib.Models;
-
-namespace FrafsuallyLib.Calculators.Implementation
+namespace OpenFrafsuallyLib.Calculators.Implementation
 {
     /// <summary>
     /// A class to implement the IAverageFrameRateCalculator interface.

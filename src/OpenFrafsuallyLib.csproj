@@ -1,15 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>FrafsuallyLib</AssemblyName>
-        <RootNamespace>FrafsuallyLib</RootNamespace>
-        <PackageId>FrafsuallyLib</PackageId>
+        <PackageId>OpenFrafsuallyLib</PackageId>
         <Authors>AluminiumTech</Authors>
         <Company>AluminiumTech</Company>
-        <Product>FrafsuallyLib</Product>
+        <Product>OpenFrafsuallyLib</Product>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>FrafsuallyLib</Title>
+        <Title>OpenFrafsuallyLib</Title>
         <Copyright>2020 (c) AluminiumTech</Copyright>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageLicenseFile>License.md</PackageLicenseFile>
@@ -20,7 +18,7 @@
 * Added a new method to IAverageFrameRateCalculator and AverageFrameRateCalculator ``PercentileOf(double percentage, FrameTimes[] )``</PackageReleaseNotes>
         <Description>A library to perform calculations related to Frametimes and framerates and FrameTime and AverageFrameRate models.</Description>
         <PackageVersion>1.1.1</PackageVersion>
-        <Version>1.1.0</Version>
+        <Version>1.1.1</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

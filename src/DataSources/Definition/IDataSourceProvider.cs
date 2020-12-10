@@ -17,9 +17,9 @@
     USA
  */
 
-using FrafsuallyLib.Models;
+using OpenFrafsuallyLib.Models;
 
-namespace FrafsuallyLib.DataSources.Definition
+namespace OpenFrafsuallyLib.DataSources.Definition
 {
     /// <summary>
     /// An interface describing a way to provide FrameTime and AverageFrameRate data from a data source.

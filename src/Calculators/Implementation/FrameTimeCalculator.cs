@@ -18,10 +18,9 @@
  */
 
 using System;
+using OpenFrafsuallyLib.Calculators.Definition;
 
-using FrafsuallyLib.Calculators.Definition;
-
-namespace FrafsuallyLib.Calculators.Implementation
+namespace OpenFrafsuallyLib.Calculators.Implementation
 {
     /// <summary>
     /// A class to implement the IFrameTimeCalculator interface.

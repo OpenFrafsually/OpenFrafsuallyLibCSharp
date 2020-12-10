@@ -22,10 +22,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using CsvHelper;
-using FrafsuallyLib.DataSources.Definition;
-using FrafsuallyLib.Models;
+using OpenFrafsuallyLib.DataSources.Definition;
+using OpenFrafsuallyLib.Models;
 
-namespace FrafsuallyLib.DataSources.Implementation
+namespace OpenFrafsuallyLib.DataSources.Implementation
 {
     /// <summary>
     /// 

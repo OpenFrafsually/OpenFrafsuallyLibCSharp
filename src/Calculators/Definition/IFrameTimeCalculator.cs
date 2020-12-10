@@ -17,7 +17,7 @@
     USA
  */
 
-namespace FrafsuallyLib.Calculators.Definition
+namespace OpenFrafsuallyLib.Calculators.Definition
 {
     /// <summary>
     /// An interface to describe what types of calculations need to be performed on FrameTime. 

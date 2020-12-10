@@ -17,11 +17,10 @@
     USA
  */
 
-using FrafsuallyLib.DataSources.Definition;
+using OpenFrafsuallyLib.DataSources.Definition;
+using OpenFrafsuallyLib.Models;
 
-using FrafsuallyLib.Models;
-
-namespace FrafsuallyLib.DataSources.Implementation
+namespace OpenFrafsuallyLib.DataSources.Implementation
 {
     /// <summary>
     /// 

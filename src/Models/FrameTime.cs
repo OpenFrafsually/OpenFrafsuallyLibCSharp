@@ -18,10 +18,9 @@
  */
 
 using System;
+using OpenFrafsuallyLib.Calculators.Implementation;
 
-using FrafsuallyLib.Calculators.Implementation;
-
-namespace FrafsuallyLib.Models
+namespace OpenFrafsuallyLib.Models
 {
     /// <summary>
     /// A class to model a FrameTime of individual frames.

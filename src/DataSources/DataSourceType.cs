@@ -17,7 +17,7 @@
     USA
  */
 
-namespace FrafsuallyLib.DataSources
+namespace OpenFrafsuallyLib.DataSources
 {
     /// <summary>
     /// 

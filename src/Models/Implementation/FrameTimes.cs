@@ -23,6 +23,8 @@ using System.Collections.Generic;
 using FrafsuallyLib.Calculators.Implementation;
 
 using FrafsuallyLib.Models.Definition;
+using OpenFrafsuallyLib.Calculators.Implementation;
+using OpenFrafsuallyLib.Models;
 
 namespace FrafsuallyLib.Models.Implementation
 {

@@ -17,6 +17,8 @@
     USA
  */
 
+using OpenFrafsuallyLib.Models;
+
 namespace FrafsuallyLib.Models.Definition
 {
     public interface IFrameTimes

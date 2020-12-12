@@ -18,27 +18,26 @@
  */
 
 using System;
+
 using System.Collections.Generic;
 
-using FrafsuallyLib.Calculators.Implementation;
-
-using FrafsuallyLib.Models.Definition;
 using OpenFrafsuallyLib.Calculators.Implementation;
-using OpenFrafsuallyLib.Models;
 
-namespace FrafsuallyLib.Models.Implementation
+using OpenFrafsuallyLib.Models.Definition;
+
+namespace OpenFrafsuallyLib.Models.Implementation
 {
     /// <summary>
     /// A class to manage groups of frametimes.
     /// </summary>
     public class FrameTimes : IFrameTimes
     {
-        public List<FrameTime> frameTimes { get; set; }
+        public List<FrameTime> FrameTimesList { get; set; }
 
         protected FrameTimeCalculator _frameTimeCalculator;
         
         
-        public int NumberOfFrames => frameTimes.Count;
+        public int NumberOfFrames => FrameTimesList.Count;
 
         /// <summary>
         /// 1.0% Lows Frame rates
@@ -67,7 +66,7 @@ namespace FrafsuallyLib.Models.Implementation
         
         public FrameTimes()
         {
-            frameTimes = new List<FrameTime>();
+            FrameTimesList = new List<FrameTime>();
             
             _frameTimeCalculator = new FrameTimeCalculator();
         }
@@ -85,7 +84,7 @@ namespace FrafsuallyLib.Models.Implementation
         {
             foreach (FrameTime frameTime in frameTimesArray)
             {
-               frameTimes.Add(frameTime);
+               FrameTimesList.Add(frameTime);
             }
         }
         
@@ -95,7 +94,7 @@ namespace FrafsuallyLib.Models.Implementation
         /// <param name="frameTimesList"></param>
         public void Add(List<FrameTime> frameTimesList)
         {
-            Add(frameTimes.ToArray());
+            Add(FrameTimesList.ToArray());
         }
         
         /// <summary>
@@ -106,7 +105,7 @@ namespace FrafsuallyLib.Models.Implementation
         {
             for (int index = 0; index < frameTimesArray.Length; index++)
             {
-                this.frameTimes.Remove(frameTimesArray[index]);
+                this.FrameTimesList.Remove(frameTimesArray[index]);
             }
         }
         
@@ -116,7 +115,7 @@ namespace FrafsuallyLib.Models.Implementation
         /// <param name="frameTimesList"></param>
         public void Remove(List<FrameTime> frameTimesList)
         {
-            Remove(frameTimes.ToArray());
+            Remove(FrameTimesList.ToArray());
         }
         
         /// <summary>
@@ -125,7 +124,7 @@ namespace FrafsuallyLib.Models.Implementation
         /// <returns></returns>
         public List<FrameTime> ToList()
         {
-            return frameTimes;
+            return FrameTimesList;
         }
         
         /// <summary>
@@ -134,7 +133,7 @@ namespace FrafsuallyLib.Models.Implementation
         /// <returns></returns>
         public FrameTime[] ToArray()
         {
-            return frameTimes.ToArray();
+            return FrameTimesList.ToArray();
         }
         
         /// <summary>
@@ -145,14 +144,14 @@ namespace FrafsuallyLib.Models.Implementation
         {
             double average = 0.0;
 
-            foreach(FrameTime frameTime in frameTimes)
+            foreach(FrameTime frameTime in FrameTimesList)
             {
                 var seconds = frameTime.TimeMilliseconds / 1000.0;
 
                 average *= _frameTimeCalculator.CalculateFramesPerSecond(1, seconds);
             }
             
-            return Math.Pow(average, (1.0 / Convert.ToDouble(frameTimes.Count)));
+            return Math.Pow(average, (1.0 / Convert.ToDouble(FrameTimesList.Count)));
         }
 
         /// <summary>
@@ -163,14 +162,14 @@ namespace FrafsuallyLib.Models.Implementation
         {
             double average = 0.0;
             
-            foreach (FrameTime frameTime in frameTimes)
+            foreach (FrameTime frameTime in FrameTimesList)
             {
                 var seconds = frameTime.TimeMilliseconds / 1000.0;
 
                 average += _frameTimeCalculator.CalculateFramesPerSecond(1, seconds);
             }
 
-            return average / Convert.ToDouble(frameTimes.Count);
+            return average / Convert.ToDouble(FrameTimesList.Count);
         }
         
         /// <summary>
@@ -198,11 +197,11 @@ namespace FrafsuallyLib.Models.Implementation
                 throw new Exception("Error: Inappropriate percentage value (less than 0%) provided as parameter.");
             }
 
-            Array.Sort(frameTimes.ToArray());
+            Array.Sort(FrameTimesList.ToArray());
             
             //No rounding necessary cos Int32.
             //percentileIndex = Math.Round(percentileIndex, 0, MidpointRounding.ToEven);
-            return frameTimes[Convert.ToInt32(percentage / 100) * frameTimes.ToArray().Length];
+            return FrameTimesList[Convert.ToInt32(percentage / 100) * FrameTimesList.ToArray().Length];
         }
     }
 }
